@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Listening on port:  ${process.env.BASE_URL}`)
+    console.log(`Listening on port:  ${SERVER_URL}`)
 });
 
 // ................... Socket IO ..........................
