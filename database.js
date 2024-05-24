@@ -1,30 +1,27 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
 require('dotenv').config();
 
+const mogooseURI = process.env.MONGO_URL;
 
-const mogooseURI = `${process.env.MONGO_URL}`;
+mongoose.set('debug', true);
 
-// mongoose.connect(mogooseURI, {});
+mongoose.connect(mogooseURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  ssl: true,
+})
+.then(() => {
+  console.log('Successfully connected to MongoDB');
+})
+.catch(err => {
+  console.error('Error connecting to MongoDB:', err);
+});
 
 var db = mongoose.connection;
 
-// db.on('connected', function(){
-//     console.log('Connect to mongoose successfully...');
-// })
-
-// const uri = 'mongodb+srv://hacker:hacker@cluster0.ltt9gpg.mongodb.net/RocketChat?retryWrites=true&w=majority';
-// const uri = 'mongodb+srv://hacker:hacker@cluster0.ltt9gpg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-
-mongoose.connect(mogooseURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    ssl: true,
-})
-   
 db.on('connected', function () {
-    console.log('Connect to mongoose successfully...');
-})
+  console.log('Connected to MongoDB successfully...');
+});
 
 module.exports = db;
