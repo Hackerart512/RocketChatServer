@@ -55,7 +55,6 @@ router.post('/signup', [
         success = true;
         res.json({ success, authtoken });
 
-
     } catch (err) {
         console.log("Error : " + err.message);
         res.status(500).json({ success, message: "Some Error occure" });

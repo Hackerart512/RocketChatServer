@@ -89,4 +89,16 @@ router.post('/upload/image', upload.single('uploadFile'), async (req, res) => {
     }
 })
 
+
+// Route:2 text purpose
+router.get('/msg', async (req, res) => {
+    try {
+        const messages = await Message.find();
+        return res.status(200).json(messages);
+
+    } catch (error) {
+        res.status(500).json(error);
+    }
+})
+
 module.exports = router;
