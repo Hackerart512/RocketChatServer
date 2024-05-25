@@ -9,8 +9,9 @@ mongoose.set('debug', true);
 mongoose.connect(mogooseURI, {
   // useNewUrlParser: true,
   // useUnifiedTopology: true,
-  // serverSelectionTimeoutMS: 5000,
-  // socketTimeoutMS: 45000,
+  serverSelectionTimeoutMS: 5000,
+  socketTimeoutMS: 45000,
+  connectTimeoutMS:30000
   // family: 4
 })
 .then(() => {

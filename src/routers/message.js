@@ -94,6 +94,7 @@ router.post('/upload/image', upload.single('uploadFile'), async (req, res) => {
 router.get('/msg', async (req, res) => {
     try {
         const messages = await Message.find();
+        console.log(messages)
         return res.status(200).json(messages);
 
     } catch (error) {
