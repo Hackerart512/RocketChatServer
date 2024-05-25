@@ -7,11 +7,11 @@ const mogooseURI = process.env.MONGO_URL;
 mongoose.set('debug', true);
 
 mongoose.connect(mogooseURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 5000,
-  socketTimeoutMS: 45000,
-  family: 4
+  // useNewUrlParser: true,
+  // useUnifiedTopology: true,
+  // serverSelectionTimeoutMS: 5000,
+  // socketTimeoutMS: 45000,
+  // family: 4
 })
 .then(() => {
   console.log('Successfully connected to MongoDB');
